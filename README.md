@@ -76,11 +76,17 @@ diskmirror-backend-spring-boot   2024.04.12   96d6ca20d054   3 minutes ago   546
 
 您只需要在命令行中输入下面的命令即可启动镜像，值得注意的是 本示例中展示的是使用 2024.04.12 版本的镜像，如果您需要使用其他版本的镜像，请将 `2024.04.12` 替换为 `<您的docker版本号>`
 
+我们可以使用一个简单的命令直接使用容器内的数据存储，但是需要注意的是，这样的存储操作会将数据存储在容器内。
 ```
 docker run -d -p 8080:8080 --name diskmirror-docker diskmirror-backend-spring-boot:<您的docker版本号>
 ```
+因此我们可以使用 卷 的方式来实现数据的持久化，下面是一个示例，您按照命令的提示来操作就可以啦！
+```
+# <给盘镜使用的本地磁盘路径> 代表的就是您在本地磁盘上需要给盘镜使用的磁盘路径
+# <yaml中的 disk-mirror.root-dir的值> 代表的就是您的盘镜的根目录，存储数据的时候，会自动在此目录下存储数据，在下面的命令中就是使用了卷的方式实现了目录的映射
+docker run -d -p 8080:8080 --name diskmirror-docker diskmirror-backend-spring-boot:<您的docker版本号> -v <给盘镜使用的本地磁盘路径> <yaml中的 disk-mirror.root-dir的值>
+```
 
 ### 桌面版本 docker 启动
-可以使用桌面版本的 docker 启动之后与命令行的效果是差不多的
 
-
+可以使用桌面版本的 docker 启动之后与命令行的效果是差不多的，下面是一个示例。
