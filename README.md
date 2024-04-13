@@ -90,3 +90,5 @@ docker run -d -p 8080:8080 --name diskmirror-docker diskmirror-backend-spring-bo
 ### 桌面版本 docker 启动
 
 可以使用桌面版本的 docker 启动之后与命令行的效果是差不多的，下面是一个示例。
+![60a647f2e4914c2027c032069fb6dca](https://github.com/BeardedManZhao/diskMirror-docker/assets/113756063/880d3551-f020-4b65-87eb-5c340e44a46c)
+
