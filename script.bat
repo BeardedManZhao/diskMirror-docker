@@ -3,7 +3,7 @@
 set /P "version=ÇëÊäÈëĞèÒªµÄ°æ±¾£º"
 
 if "%version%" == "" (
-    set "version=2024.04.12"
+    set "version=2024.04.13"
 )
 
 echo "ÕıÔÚÏÂÔØ°æ±¾£º%version%"
@@ -15,7 +15,7 @@ echo ÏÂÔØÍê±Ï£¬Äú¿ÉÒÔĞŞ¸Äapplication.yamlÎÄ¼ş£¬À´ÅäÖÃÄúµÄ·şÎñÆ÷£¬Ò»ÇĞÍê±ÏÖ®ºó£¬Ç
 
 pause
 
-docker build -t diskmirror-backend-spring-boot .
+docker build -t diskmirror-backend-spring-boot:%version% .
 
 echo °²×°½Å±¾²Ù×÷Íê±Ï
 

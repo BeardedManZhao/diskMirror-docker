@@ -7,7 +7,7 @@ read -p "请输入需要的版本：" version
 
 # 判断用户是否输入了数据 如果没有数据就默认赋值
 if [ -z "$version" ]; then
-  version="2024.04.12"
+  version="2024.04.13"
 fi
 
 echo "正在下载版本：$version"
@@ -22,6 +22,6 @@ echo "下载完毕，您可以修改application.yaml文件，来配置您的服�
 # 在这里阻塞一下
 read -p "按回车键继续..."
 
-docker build -t diskmirror-backend-spring-boot .
+docker build -t diskmirror-backend-spring-boot:$version .
 
 read -p "安装脚本操作完毕!"
