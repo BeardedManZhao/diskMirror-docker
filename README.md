@@ -84,7 +84,7 @@ docker run -d -p 8080:8080 --name diskmirror-docker diskmirror-backend-spring-bo
 ```
 # <给盘镜使用的本地磁盘路径> 代表的就是您在本地磁盘上需要给盘镜使用的磁盘路径
 # <yaml中的 disk-mirror.root-dir的值> 代表的就是您的盘镜的根目录，存储数据的时候，会自动在此目录下存储数据，在下面的命令中就是使用了卷的方式实现了目录的映射
-docker run -d -p 8080:8080 --name diskmirror-docker diskmirror-backend-spring-boot:<您的docker版本号> -v <给盘镜使用的本地磁盘路径> <yaml中的 disk-mirror.root-dir的值>
+docker run -d -p 8080:8080 --name diskmirror-docker -v <给盘镜使用的本地磁盘路径>:<yaml中的 disk-mirror.root-dir的值> diskmirror-backend-spring-boot:<您的docker版本号> 
 ```
 
 ### 桌面版本 docker 启动
