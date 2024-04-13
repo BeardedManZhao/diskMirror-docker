@@ -17,7 +17,7 @@ curl -o "./diskMirror-backEnd-spring-boot.jar" --insecure -k -L "https://github.
 curl -o "./diskMirror-backEnd-spring-boot.yaml" --insecure -k -L "https://github.com/BeardedManZhao/diskMirror-backEnd-spring-boot/releases/download/$version/application.yaml"
 
 
-echo "下载完毕，您可以修改application.yaml文件，来配置您的服务器，一切完毕之后，请您回到这里按下回车！"
+echo "下载完毕，您可以修改 diskMirror-backEnd-spring-boot.yaml 文件，来配置您的服务器，一切完毕之后，请您回到这里按下回车！"
 
 # 在这里阻塞一下
 read -p "按回车键继续..."
