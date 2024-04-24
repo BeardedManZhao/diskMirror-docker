@@ -22,42 +22,41 @@ yaml 配置结束，回到 script 打开的窗口，直接回车开始编译就�
 > 默认版本号一直会变哦，会逐渐的使用最新的版本！
 
 ```
-G:\MyGithub\diskMirror-docker>script.bat
+docker 镜像安装脚本版本：1.0.2
 请输入需要的版本：
-"正在下载版本：2024.04.12"
+"正在下载版本：2024.04.13"
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 72.0M  100 72.0M    0     0   9.9M      0  0:00:07  0:00:07 --:--:-- 14.3M
+100  2940  100  2940    0     0   2374      0  0:00:01  0:00:01 --:--:--     0
+您现在可以修改 diskMirror-backEnd-spring-boot.yaml 文件，并拷贝到您宿主机的某个目录下，然后耐心等待
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  1394  100  1394    0     0   1102      0  0:00:01  0:00:01 --:--:--     0
-下载完毕，您可以修改application.yaml文件，来配置您的服务器，一切完毕之后，请您回到这里按下回车！
-请按任意键继续. . .
-[+] Building 16.6s (8/8) FINISHED                                                                                                                                                                 docker:default
- => [internal] load build definition from Dockerfile                                                                                                                                                        0.0s
- => => transferring dockerfile: 672B                                                                                                                                                                        0.0s
- => [internal] load metadata for docker.io/library/openjdk:17-jdk                                                                                                                                          15.3s
- => [internal] load .dockerignore                                                                                                                                                                           0.0s
- => => transferring context: 52B                                                                                                                                                                            0.0s
- => [1/3] FROM docker.io/library/openjdk:17-jdk@sha256:74bad65c9e59d6410bdd67d71a14e14175ddd33d654419ecfabf03ddbe70fff4                                                                                     0.0s
- => [internal] load build context                                                                                                                                                                           1.3s
- => => transferring context: 75.57MB                                                                                                                                                                        1.3s
- => CACHED [2/3] COPY ./diskMirror-backEnd-spring-boot.jar /usr/local/springboot/diskMirror-backEnd-spring-boot.jar                                                                                         0.0s
- => CACHED [3/3] COPY ./diskMirror-backEnd-spring-boot.yaml /usr/local/springboot/diskMirror-backEnd-spring-boot.yaml                                                                                       0.0s
- => exporting to image                                                                                                                                                                                      0.0s
- => => exporting layers                                                                                                                                                                                     0.0s
- => => writing image sha256:96d6ca20d054323d6ba90376b89e5329dfbaa8a0a590ea35fd901e862ab48c89                                                                                                                0.0s
- => => naming to docker.io/library/diskmirror-backend-spring-boot:2024.04.12                                                                                                                                0.0s
+100 72.0M  100 72.0M    0     0  1664k      0  0:00:44  0:00:44 --:--:-- 3206k
+正在开始编译，请耐心等待！
+[+] Building 16.8s (7/7) FINISHED                                                                        docker:default
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 557B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/openjdk:17-jdk                                                 15.4s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 52B                                                                                   0.0s
+ => [internal] load build context                                                                                  1.3s
+ => => transferring context: 75.57MB                                                                               1.3s
+ => [1/2] FROM docker.io/library/openjdk:17-jdk@sha256:74bad65c9e59d6410bdd67d71a14e14175ddd33d654419ecfabf03ddbe  0.0s
+ => CACHED [2/2] COPY ./diskMirror-backEnd-spring-boot.jar /usr/local/springboot/diskMirror-backEnd-spring-boot.j  0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:ad4ae22e2810d2008ef903e9ab429f1cfcf1ab472a6058de9d4d5004ab594efd                       0.0s
+ => => naming to docker.io/library/diskmirror-backend-spring-boot:2024.04.13                                       0.0s
 
-View build details: docker-desktop://dashboard/build/default/default/s2srdwc3jz6fcquh9raw8x76e
+View build details: docker-desktop://dashboard/build/default/default/r1zo8nzuzvx5q5kjgsyhf7xwa
 
 What's Next?
   1. Sign in to your Docker account → docker login
   2. View a summary of image vulnerabilities and recommendations → docker scout quickview
-安装脚本操作完毕
-请按任意键继续. . .
+安装脚本操作完毕，若过程无错误则代表安装成功，请您回到这里按下回车！
+启动时：容器中的 /usr/local/springboot/diskMirror-backEnd-spring-boot.yaml 会做为配置文件，您可以进行路径映射哦！
 ```
 
 ### 查看 docker 中的镜像列表是否存在 `diskmirror-backend-spring-boot`
@@ -112,7 +111,7 @@ docker run -d -p 8080:8080 --name diskmirror-docker -v C:\Users\zhao\Downloads\c
 ### 桌面版本 docker 启动
 
 可以使用桌面版本的 docker 启动之后与命令行的效果是差不多的，下面是一个示例。
-![60a647f2e4914c2027c032069fb6dca](https://github.com/BeardedManZhao/diskMirror-docker/assets/113756063/880d3551-f020-4b65-87eb-5c340e44a46c)
+![image](https://github.com/BeardedManZhao/diskMirror-docker/assets/113756063/48d31c56-96d1-4082-a6a2-c7d93236dbf7)
 
 ## 更多信息
 
