@@ -3,6 +3,7 @@
 ## 获取项目
 
 这个项目是 diskMirror-front 的前端项目，您可以使用下面的命令将此项目编译为一个镜像！
+
 ```
 # 进入到您下载的源码包目录
 cd diskMirror-docker
@@ -10,6 +11,7 @@ cd diskMirror-docker
 # 点击脚本来进行版本的设置以及对应版本的下载 设置 和 编译 按照引导走就可以啦
 ./script.sh # 或者 script.bat 根据您的操作系统来选择哦
 ```
+
 然后等待下载，下载完毕之后，就开始进行 yaml 的配置！
 
 ## 编译镜像
@@ -74,17 +76,37 @@ diskmirror-backend-spring-boot   2024.04.12   96d6ca20d054   3 minutes ago   546
 
 ### 命令行版本 docker 启动
 
-您只需要在命令行中输入下面的命令即可启动镜像，值得注意的是 本示例中展示的是使用 2024.04.12 版本的镜像，如果您需要使用其他版本的镜像，请将 `2024.04.12` 替换为 `<您的docker版本号>`
+您只需要在命令行中输入下面的命令即可启动镜像，值得注意的是 本示例中展示的是使用 2024.04.12
+版本的镜像，如果您需要使用其他版本的镜像，请将 `2024.04.12` 替换为 `<您的docker版本号>`
 
 我们可以使用一个简单的命令直接使用容器内的数据存储，但是需要注意的是，这样的存储操作会将数据存储在容器内。
+
 ```
-docker run -d -p 8080:8080 --name diskmirror-docker diskmirror-backend-spring-boot:<您的docker版本号>
+# 将您的yaml配置文件移动到被盘镜使用的本地磁盘目录下
+mv ./diskMirror-backEnd-spring-boot.yaml <yaml配置文件所在的本地磁盘目录路径>
+# 启动镜像
+docker run -d -p 8080:8080 --name diskmirror-docker -v <yaml配置文件所在的本地磁盘目录路径>:/usr/local/springboot/conf diskmirror-backend-spring-boot:<您的docker版本号>
 ```
+
 因此我们可以使用 卷 的方式来实现数据的持久化，下面是一个示例，您按照命令的提示来操作就可以啦！
+
+```shell
+# 将您的yaml配置文件移动到被盘镜使用的本地磁盘目录下
+mv ./diskMirror-backEnd-spring-boot.yaml <yaml配置文件所在的本地磁盘目录路径>
+# <给盘镜使用的本地磁盘路径> 代表的就是您在本地磁盘上需要给盘镜使用的磁盘路径 这个路径是您的宿主机的
+# <配置文件所在的本地磁盘路径 xxx.yaml> 代表的就是您要用于存储盘镜配置文件的路径！这个路径是您的宿主机的
+# <yaml中的 disk-mirror.root-dir的值> 代表的就是您的盘镜的根目录，存储数据的时候，会自动在此目录下存储数据，在下面的命令中就是使用了卷的方式实现了目录的映射 这个路径是您的容器的
+docker run -d -p 8080:8080 --name diskmirror-docker \
+-v <yaml 配置文件所在的本地磁盘目录路径>:/usr/local/springboot/conf \
+-v <给盘镜使用的本地磁盘目录路径>:<yaml中的 disk-mirror.root-dir的值> \
+diskmirror-backend-spring-boot:<您的docker版本号> 
 ```
-# <给盘镜使用的本地磁盘路径> 代表的就是您在本地磁盘上需要给盘镜使用的磁盘路径
-# <yaml中的 disk-mirror.root-dir的值> 代表的就是您的盘镜的根目录，存储数据的时候，会自动在此目录下存储数据，在下面的命令中就是使用了卷的方式实现了目录的映射
-docker run -d -p 8080:8080 --name diskmirror-docker -v <给盘镜使用的本地磁盘路径>:<yaml中的 disk-mirror.root-dir的值> diskmirror-backend-spring-boot:<您的docker版本号> 
+
+下面是一个示例
+
+```shell
+mv ./diskMirror-backEnd-spring-boot.yaml C:\Users\zhao\Downloads\conf
+docker run -d -p 8080:8080 --name diskmirror-docker -v C:\Users\zhao\Downloads\conf:/usr/local/springboot/conf -v G:\DiskMirror:/DiskMirror diskmirror-backend-spring-boot:2024.04.13
 ```
 
 ### 桌面版本 docker 启动
@@ -92,3 +114,11 @@ docker run -d -p 8080:8080 --name diskmirror-docker -v <给盘镜使用的本地
 可以使用桌面版本的 docker 启动之后与命令行的效果是差不多的，下面是一个示例。
 ![60a647f2e4914c2027c032069fb6dca](https://github.com/BeardedManZhao/diskMirror-docker/assets/113756063/880d3551-f020-4b65-87eb-5c340e44a46c)
 
+## 更多信息
+
+### 更新记录
+
+#### 1.0.1 → 1.0.2
+
+- 将配置文件的路径暴露出容器，方便用户使用卷的方式来存储配置文件，而不需要重新编译镜像
+- 镜像编译过程中移除了编写配置文件的步骤，配置文件自动下载完毕之后，由用户按照自己的需求直接修改和拷贝到卷映射的目录即可
