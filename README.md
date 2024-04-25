@@ -1,5 +1,7 @@
 # Welcome to diskMirror-docker
 
+![image](https://private-user-images.githubusercontent.com/113756063/325554789-93b519e7-357e-4621-9127-d4edbfd47b3a.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQwMzkyMDksIm5iZiI6MTcxNDAzODkwOSwicGF0aCI6Ii8xMTM3NTYwNjMvMzI1NTU0Nzg5LTkzYjUxOWU3LTM1N2UtNDYyMS05MTI3LWQ0ZWRiZmQ0N2IzYS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQyNVQwOTU1MDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jYjEyNjlkYWVjZTQyOTIyNWYyN2U0MDYwZWIyNTc1MGVkMGRjZjRkMDRmMjUyMzQwNzhhZDY4YmFiNTA2YWVhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.NFBikecjgjHW3OjRn8v7g9KyGC5tO95MwxPB7TndjoM)
+
 ## 获取项目
 
 这个项目是 diskMirror-front 的前端项目，您可以使用下面的命令将此项目编译为一个镜像！
@@ -18,8 +20,11 @@ cd diskMirror-docker
 
 ### 运行脚本进行镜像自动装载
 
-yaml 配置结束，回到 script 打开的窗口，直接回车开始编译就可以啦！请确保期间无错误信息哦！下面是一个编译的日志展示。
-> 默认版本号一直会变哦，会逐渐的使用最新的版本！
+在旧版本中 yaml 配置结束，回到 script 打开的窗口，直接回车开始编译就可以啦！请确保期间无错误信息哦！
+
+在 `>=1.0.2` 版本 yaml 配置时，回到窗口不需要回车，它会继续编译，当编译完成，就会如下面所示！
+
+> 默认版本号一直会变哦，会逐渐的使用最新的版本！在这里显示的 `20xx.xx.xx` 就是版本号，实际操作中根据你的配置会有不同的变化！
 
 ```
 docker 镜像安装脚本版本：1.0.2
