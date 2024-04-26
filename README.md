@@ -122,9 +122,13 @@ docker run -d -p 8080:8080 --name diskmirror-docker -v C:\Users\zhao\Downloads\c
 
 ### 更新记录
 
+#### 1.0.2 → 1.0.3 正在开发中
+
+- 同步 `diskmirror-backend-spring-boot:2024.04.26` 版本信息！
+
 #### 1.0.2 → 1.0.3
 
-- 同步最新版本信息！
+- 同步 `diskmirror-backend-spring-boot:2024.04.25` 版本信息！
 
 #### 1.0.1 → 1.0.2
 

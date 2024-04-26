@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "docker 镜像安装脚本版本：1.0.3"
+echo "docker 镜像安装脚本版本：1.0.4"
 
 version=""
 
@@ -9,7 +9,7 @@ read -p "请输入需要的版本：" version
 
 # 判断用户是否输入了数据 如果没有数据就默认赋值
 if [ -z "$version" ]; then
-  version="2024.04.25"
+  version="2024.04.26"
 fi
 
 echo "正在下载版本：$version"
