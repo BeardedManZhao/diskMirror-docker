@@ -1,11 +1,11 @@
 @echo off
 
-echo docker 镜像安装脚本版本：1.0.4
+echo docker 镜像安装脚本版本：1.0.5
 
 set /P "version=请输入需要的版本："
 
 if "%version%" == "" (
-    set "version=2024.04.26"
+    set "version=2024.11.02"
 )
 
 echo "正在下载版本：%version%"
