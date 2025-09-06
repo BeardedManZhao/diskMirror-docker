@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget https://github.com/BeardedManZhao/diskMirror-docker/releases/download/jdk-17.0.12/jdk-17.0.12.tar && tar -vxf jdk-17.0.12.tar && docker pull ubuntu:latest && docker build -t beardedmanzhao/diskmirror-docker:2024.12.05 .
+wget https://github.com/BeardedManZhao/diskMirror-docker/releases/download/jdk-17.0.12/jdk-17.0.12.tar && tar -vxf jdk-17.0.12.tar && docker pull ubuntu:latest && docker build -t beardedmanzhao/diskmirror-docker:2025.09.06 .
 
 echo "安装脚本操作完毕，若过程无错误则代表安装成功，请您回到这里按下回车！"
 
