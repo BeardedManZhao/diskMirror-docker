@@ -28,6 +28,10 @@ beardedmanzhao/diskmirror-docker:<您的docker版本号>
 
 到这里操作就算是成功了！这样的方法相较于手动部署要方便且快捷，但如果您没有办法访问到 docker 仓库，您只能使用手动部署了 /(ㄒoㄒ)/~~
 
+## 一对一镜像编译和部署（无需任何思考）
+
+可以联系微信（微信号 CH-liming02240898）进行定制修改或代替部署哦！
+
 ## 手动部署（无 docker 仓库访问网络可用）
 
 如果您没有 docker 仓库访问网络，您可以前往 [diskMirror-docker 软件包仓库](https://github.com/BeardedManZhao/diskMirror-docker.git) 下载源码并按照这里的文档操作！

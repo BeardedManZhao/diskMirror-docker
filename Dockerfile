@@ -10,6 +10,9 @@ RUN apt-get update && \
 # 安装中文字体
 RUN apt-get install -y fonts-wqy-zenhei
 
+# 创建需要的目录
+RUN mkdir -p "/opt/app/diskMirror-spring-boot" && chmod -R 755 "/opt/app/diskMirror-spring-boot"
+
 # 设置环境变量
 ENV LANG=zh_CN.UTF-8 \
     LANGUAGE=zh_CN:zh \
