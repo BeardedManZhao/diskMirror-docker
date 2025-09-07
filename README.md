@@ -11,10 +11,14 @@
 ```shell
 docker pull diskmirror-docker
 
+# 修改 yaml 配置，配置信息可以在 https://www.codebook.ltd/a/-31975978 中查询到·
+vim ./diskMirror-backEnd-spring-boot.yaml
+
 # 将您的yaml配置文件移动到被盘镜使用的本地磁盘目录下
 mv ./diskMirror-backEnd-spring-boot.yaml <yaml配置文件所在的本地磁盘目录路径>
+
 # <给盘镜使用的本地磁盘路径> 代表的就是您在本地磁盘上需要给盘镜使用的磁盘路径 这个路径是您的宿主机的
-# <配置文件所在的本地磁盘路径 xxx.yaml> 代表的就是您要用于存储盘镜配置文件的路径！这个路径是您的宿主机的
+# <配置文件所在的本地磁盘目录路径> 代表的就是您要用于存储盘镜配置文件的目录路径！这个路径是您的宿主机的目录 其中应该包含 diskMirror-backEnd-spring-boot.yaml 文件，请确保不要将此目录从宿主机中删除哦
 # <yaml中的 disk-mirror.root-dir的值> 代表的就是您的盘镜的根目录，存储数据的时候，会自动在此目录下存储数据，在下面的命令中就是使用了卷的方式实现了目录的映射 这个路径是您的容器的
 docker run -d -p 8080:8080 --name diskmirror-docker \
 -v <yaml 配置文件所在的本地磁盘目录路径>:/usr/local/springboot/conf \
@@ -51,33 +55,37 @@ cd diskMirror-docker
 在 `>=1.0.6` 版本中，允许脚本将全程不需要用户操作，全自动化流程！ 下面是一个执行编译镜像的示例
 
 ```
-F:\MyGithub\diskMirror-docker>script.bat
+D:\MyGithub\diskMirror-docker>script.bat
 正在开始编译，请耐心等待！
+请下载 https://github.com/BeardedManZhao/diskMirror-docker/releases/download/jdk-17.0.12/jdk-17.0.12.tar 并手动解压为项目的`/jdk-17.0.12`目录！！然后按下回车
+请按任意键继续. . .
 latest: Pulling from library/ubuntu
-Digest: sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6734ab
+Digest: sha256:9cbed754112939e914291337b5e554b07ad7c392491dba6daf25eef1332a22e8
 Status: Image is up to date for ubuntu:latest
 docker.io/library/ubuntu:latest
-
-What's next:
-    View a summary of image vulnerabilities and recommendations → docker scout quickview ubuntu:latest
-[+] Building 0.2s (8/8) FINISHED                                                                                                                                                            docker:desktop-linux
+[+] Building 173.7s (10/10) FINISHED                                                                                                                                                        docker:desktop-linux
  => [internal] load build definition from Dockerfile                                                                                                                                                        0.0s
- => => transferring dockerfile: 752B                                                                                                                                                                        0.0s
+ => => transferring dockerfile: 1.08kB                                                                                                                                                                      0.0s
  => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                                            0.0s
  => [internal] load .dockerignore                                                                                                                                                                           0.0s
  => => transferring context: 52B                                                                                                                                                                            0.0s
- => [1/3] FROM docker.io/library/ubuntu:latest                                                                                                                                                              0.0s
+ => CACHED [1/5] FROM docker.io/library/ubuntu:latest@sha256:9cbed754112939e914291337b5e554b07ad7c392491dba6daf25eef1332a22e8                                                                               0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:9cbed754112939e914291337b5e554b07ad7c392491dba6daf25eef1332a22e8                                                                                      0.0s
  => [internal] load build context                                                                                                                                                                           0.0s
  => => transferring context: 26.22kB                                                                                                                                                                        0.0s
- => CACHED [2/3] COPY ./jdk-17.0.12 /usr/lib/jvm/jdk-17.0.12                                                                                                                                                0.0s
- => CACHED [3/3] COPY ./diskMirror-backEnd-spring-boot.jar /usr/local/springboot/diskMirror-backEnd-spring-boot.jar                                                                                         0.0s
- => exporting to image                                                                                                                                                                                      0.0s
- => => exporting layers                                                                                                                                                                                     0.0s
- => => writing image sha256:fc0ef80cfb4e1ddeb6b28a43912395b32d050b50ce767f6f8e34e4387f3b6602                                                                                                                0.0s
- => => naming to docker.io/beardedmanzhao/diskmirror-docker:2024.12.05                                                                                                                                      0.0s
-
-What's next:
-    View a summary of image vulnerabilities and recommendations → docker scout quickview
+ => [2/5] RUN apt-get update &&     apt-get install -y locales &&     locale-gen zh_CN.UTF-8 &&     update-locale LANG=zh_CN.UTF-8                                                                        131.6s
+ => [3/5] RUN apt-get install -y fonts-wqy-zenhei                                                                                                                                                          30.4s
+ => [4/5] COPY ./jdk-17.0.12 /usr/lib/jvm/jdk-17.0.12                                                                                                                                                       1.1s
+ => [5/5] COPY ./diskMirror-backEnd-spring-boot.jar /usr/local/springboot/diskMirror-backEnd-spring-boot.jar                                                                                                0.3s
+ => exporting to image                                                                                                                                                                                     10.0s
+ => => exporting layers                                                                                                                                                                                     7.8s
+ => => exporting manifest sha256:0b6d0ef8b473ce4e05dde3fac9d5a9cb89de77e979a3b5b0957bc6f383ab6d82                                                                                                           0.0s
+ => => exporting config sha256:ad7d5a6be9a7cd116441286cac4a9d750312809e43639c395ec90e8a16a1da11                                                                                                             0.0s
+ => => exporting attestation manifest sha256:be29c3f73364106834bd0db9d7c2c985129b36af606516ff9506ec1d5f82ce17                                                                                               0.0s
+ => => exporting manifest list sha256:2375c877ad6f3b429613de8910f8f6b75c32a850f3d73cad5b34bd8962698bc0                                                                                                      0.0s
+ => => naming to docker.io/beardedmanzhao/diskmirror-docker:2025.09.06                                                                                                                                      0.0s
+ => => unpacking to docker.io/beardedmanzhao/diskmirror-docker:2025.09.06                                                                                                                                   2.1s
+WARNING: current commit information was not captured by the build: git was not found in the system: exec: "git.exe": executable file not found in %PATH%
 安装脚本操作完毕，若过程无错误则代表安装成功，请您回到这里按下回车！
 启动时：容器中的 /usr/local/springboot/diskMirror-backEnd-spring-boot.yaml 会做为配置文件，您可以进行路径映射哦！
 请按任意键继续. . .
