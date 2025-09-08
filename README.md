@@ -130,7 +130,7 @@ docker run -d -p 8080:8080 --name diskmirror-docker -v <yaml配置文件所在�
 # 将您的yaml配置文件移动到被盘镜使用的本地磁盘目录下
 mv ./diskMirror-backEnd-spring-boot.yaml <yaml配置文件所在的本地磁盘目录路径>
 # <给盘镜使用的本地磁盘路径> 代表的就是您在本地磁盘上需要给盘镜使用的磁盘路径 这个路径是您的宿主机的
-# <配置文件所在的本地磁盘路径 xxx.yaml> 代表的就是您要用于存储盘镜配置文件的路径！这个路径是您的宿主机的
+# <给盘镜使用的本地磁盘目录路径> 代表的就是您要用于存储盘镜配置文件的路径 是目录！这个路径是您的宿主机的
 # <yaml中的 disk-mirror.root-dir的值> 代表的就是您的盘镜的根目录，存储数据的时候，会自动在此目录下存储数据，在下面的命令中就是使用了卷的方式实现了目录的映射 这个路径是您的容器的
 docker run -d -p 8080:8080 --name diskmirror-docker \
 -v <yaml 配置文件所在的本地磁盘目录路径>:/usr/local/springboot/conf \
