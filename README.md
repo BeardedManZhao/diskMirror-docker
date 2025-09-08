@@ -142,7 +142,7 @@ beardedmanzhao/diskmirror-docker:<您的docker版本号>
 
 ```shell
 mv ./diskMirror-backEnd-spring-boot.yaml C:\Users\zhao\Downloads\conf
-docker run -d -p 8080:8080 --name diskmirror-docker -v C:\Users\zhao\Downloads\conf:/usr/local/springboot/conf -v F:\DiskMirror:/DiskMirror beardedmanzhao/diskmirror-docker:2024.12.05
+docker run -d -p 8080:8080 --name diskmirror-docker -v C:\Users\codebook\Downloads\conf:/usr/local/springboot/conf -v F:\DiskMirror:/DiskMirror beardedmanzhao/diskmirror-docker:2024.12.05
 ```
 
 ### 桌面版本 docker 启动
@@ -151,6 +151,10 @@ docker run -d -p 8080:8080 --name diskmirror-docker -v C:\Users\zhao\Downloads\c
 ![image](https://github.com/BeardedManZhao/diskMirror-docker/assets/113756063/48d31c56-96d1-4082-a6a2-c7d93236dbf7)
 
 ## 更多信息
+
+### 1.0.7 → 1.0.8
+
+- 同步 `diskmirror-backend-spring-boot:2025.09.08` 版本信息！
 
 ### 1.0.6 → 1.0.7
 

@@ -8,7 +8,7 @@ pause
 
 docker pull ubuntu:latest
 
-docker build -t beardedmanzhao/diskmirror-docker:2025.09.06 .
+docker build -t beardedmanzhao/diskmirror-docker:2025.09.08 .
 
 echo 安装脚本操作完毕，若过程无错误则代表安装成功，请您回到这里按下回车！
 echo 若有错误可以联系我们代部署或者您自行根据情况解决！
